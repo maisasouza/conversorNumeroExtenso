@@ -22,26 +22,22 @@ public class ConversorExtenso {
 		} else {
 			
 			int centena = d.intValue()/100;
-			int semCentena = (centena > 0) ? d.intValue() - (centena*100) : 0;
-			int dezena =  (centena > 0) ? (d.intValue() - (centena*100))/10 : d.intValue()/10;
-			int unidade = (d.intValue() - (centena*100) - (dezena*10));
+			int dezena =  d.intValue()%100;
+			int unidade = dezena%10;
 			
 			if(centena >= 1){
 				retorno += arrCentena[centena-1];
-			}
-			if(centena >= 1 && (dezena >= 1 || unidade > 0)) {
+			} if(centena >= 1 && dezena > 0) {
 				retorno += " e ";
 			}
-			if(dezena >= 1){
-				if(semCentena <= 19 || semCentena >= 10){
-					retorno += arrPrimeiraDezena[semCentena - 10];
-					return retorno;
-				} else {
-					retorno += arrDezena[dezena - 2];
-				}
+			if(dezena >= 10 && dezena <= 19){
+				retorno += arrPrimeiraDezena[dezena - 10];
+				return retorno;
+			} else if(dezena > 19) {
+				retorno += arrDezena[(dezena/10) - 2];
+				if(unidade > 0)
+					retorno += " e ";
 			}
-			if(dezena > 1 && unidade > 0)
-				retorno += " e ";
 			if(unidade > 0)
 				retorno += arrUnidades[unidade];
 						
