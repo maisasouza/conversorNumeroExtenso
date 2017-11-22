@@ -144,6 +144,54 @@ public class conversorNumeroExtensoTest {
 		Assert.assertEquals("cento e desenove", retorno);
 	}
 	
+	@Test
+	public void testeCentoESetenta() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(170.00);
+		
+		Assert.assertEquals("cento e setenta", retorno);
+	}
+	
+	@Test
+	public void testeDuzentos() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(200.00);
+		
+		Assert.assertEquals("duzentos", retorno);
+	}
+	
+	@Test
+	public void testeDuzentosEUm() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(201.00);
+		
+		Assert.assertEquals("duzentos e um", retorno);
+	}
+	
+	@Test
+	public void testeNovecentosENoventa() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(990.00);
+		
+		Assert.assertEquals("novecentos e noventa", retorno);
+	}
+	
+	@Test
+	public void testeNovecentosENoventaENove() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(999.00);
+		
+		Assert.assertEquals("novecentos e noventa e nove", retorno);
+	}
+	
+	@Test
+	public void testeCentoEDez() {
+		ConversorExtenso conversor = new ConversorExtenso();
+		String retorno = conversor.converter(110.00);
+		
+		Assert.assertEquals("cento e dez", retorno);
+	}
+	
 	
 
 }
